@@ -1,0 +1,3 @@
+
+http POST :9001/books author="Lyra Silver" title="North" isbn="12345642" price=9.9
+

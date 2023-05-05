@@ -1,0 +1,10 @@
+
+server:
+  port: 9001
+  tomcat:
+    connection-timeout: 2s # default is 20s, prevent Dos attacks where a connection is established, TOmcat reserves a thread to handle
+                          # and the request never comes
+    keep-alive-timeout: 15s # how long keep a connection open while waiting for new requests
+    threads: # default can grow up to 20 threads and has 1 worker threads always running
+      max: 50
+      min-spare: 5

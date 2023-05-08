@@ -21,14 +21,14 @@ public class BookValidationTests {
 
     @Test
     void whenALlFieldsCorrectThenValidationSucceeds(){
-        var book = new Book("1234567890", "Title", "Author", 9.90);
+        var book = Book.of("1234567890", "Title", "Author", 9.90);
         final Set<ConstraintViolation<Book>> validate = validator.validate(book);
         assertThat(validate).isEmpty();
     }
 
     @Test
     void whenIsbnDefinedButIncorrectThenValidationFails(){
-        var book = new Book("a234567890", "Title", "Author", 9.9);
+        var book = Book.of("a234567890", "Title", "Author", 9.9);
         final Set<ConstraintViolation<Book>> validate = validator.validate(book);
         assertThat(validate).hasSize(1);
         assertThat(validate.iterator().next().getMessage())

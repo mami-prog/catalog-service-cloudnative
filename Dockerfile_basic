@@ -1,0 +1,9 @@
+FROM eclipse-temurin:17
+WORKDIR workspace
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} catalog-service.jar
+
+
+# basic entrypoint that will keep on running without getting terminated
+#ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["java", "-jar","/workspace/catalog-service.jar"]

@@ -14,6 +14,7 @@
 
     <artifactId>catalog-service</artifactId>
 
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -104,6 +105,41 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <docker>
+                        <publishRegistry>
+                            <url>${docker.publishRegistry.url}</url>
+                            <username>${docker.publishRegistry.username}</username>
+                            <password>${docker.publishRegistry.password}</password>
+                        </publishRegistry>
+                    </docker>
+                </configuration>
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>repackage</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                    <execution>-->
+<!--                        <id>build-image</id>-->
+<!--                        <goals>-->
+<!--                            <goal>build-image</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <image>-->
+<!--                                <name>ghcr.io/mami-prog/catalog-service/${artifactId}</name>-->
+<!--                                <publish>true</publish>-->
+<!--                            </image>-->
+<!--                            <docker>-->
+<!--                                <publishRegistry>-->
+<!--                                    <url>${docker.publishRegistry.url}</url>-->
+<!--                                    <username>${docker.publishRegistry.username}</username>-->
+<!--                                    <password>${docker.publishRegistry.password}</password>-->
+<!--                                </publishRegistry>-->
+<!--                            </docker>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
             </plugin>
         </plugins>
     </build>

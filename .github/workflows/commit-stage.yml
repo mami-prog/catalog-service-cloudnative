@@ -45,7 +45,7 @@ jobs:
     permissions:
       contents: read
       packages: write
-      security-event: write
+      security-events: write
     steps:
       - name: Checkout source code
         uses: actions/checkout@v3

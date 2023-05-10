@@ -2,6 +2,7 @@
 # get data from config server...
 server:
   port: 9001
+  shutdown: graceful # enable graceful shutdown
   tomcat:
     connection-timeout: 2s # default is 20s, prevent Dos attacks where a connection is established, TOmcat reserves a thread to handle
                           # and the request never comes
@@ -15,6 +16,8 @@ spring:
     name: catalog-service
     # when the integration with the config server is not optional,
     # the app fails to start up if it cannot contact a config server
+  lifecycle:
+    timeout-per-shutdown-phase: 15s # defulat is 30 s
   config:
     import: "optional:configserver:"
   cloud:
